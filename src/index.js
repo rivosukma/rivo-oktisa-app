@@ -1,17 +1,46 @@
 import React from 'react';
+import { Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Header from './views/components/header/Header';
+import Homepage from './views/containers/homepage/Homepage';
+
+const Container = () => {
+  return(
+    <BrowserRouter>
+      <Switch>
+        <Route
+          exact
+          path='/'
+          render={ props => 
+          <> 
+            <Suspense fallback={'Loading ...'}>
+              <Header />
+              <Homepage {...props}/>
+            </Suspense>
+          </>
+        }
+        />
+        <Route
+          exact
+          path='/:slug'
+          render={ props => 
+          <> 
+            <Suspense fallback={'Loading ...'}>
+              <Header />
+              <Homepage {...props}/>
+            </Suspense>
+          </>
+        }
+        /> 
+      </Switch>
+    </BrowserRouter>
+  )
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Container />,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

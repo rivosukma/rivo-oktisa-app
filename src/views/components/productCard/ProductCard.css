@@ -1,0 +1,30 @@
+.card-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #969693;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40vh;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.card-information{
+    overflow: hidden;
+}
+h5{
+    margin: 2px;
+}
+p{
+    margin: 2px;
+}
+.card-price{
+    display: flex;
+}
+.txt-discount{
+    text-decoration: line-through;
+    margin-right: 10px;
+}
